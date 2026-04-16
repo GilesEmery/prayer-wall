@@ -1,1 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prayer Wall</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-title">Prayer Wall</div>
+        <div class="brand-sub">Search and pray with us.</div>
+      </div>
+      <div class="search-wrap">
+        <input id="search" class="search" type="search" placeholder="Search prayers, locations, keywords…" />
+      </div>
+    </div>
+  </header>
 
+  <main class="stage">
+    <div id="wall" class="wall" aria-label="Scrolling prayer wall"></div>
+    <div id="empty" class="empty hidden">No prayers match your search.</div>
+  </main>
+
+  <button id="cta" class="cta">Login / Share Prayer</button>
+
+  <div id="modalBackdrop" class="backdrop hidden"></div>
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Sign in</div>
+      <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div id="stepEmail" class="step">
+        <label class="label">Email</label>
+        <input id="email" class="input" type="email" placeholder="you@example.com" />
+        <button id="sendCode" class="btn primary">Send code</button>
+        <div class="hint">We’ll email you a 6 digit code.</div>
+      </div>
+
+      <div id="stepCode" class="step hidden">
+        <label class="label">Enter code</label>
+        <input id="code" class="input" inputmode="numeric" placeholder="123456" />
+        <button id="verifyCode" class="btn primary">Verify</button>
+        <button id="backToEmail" class="btn ghost">Use a different email</button>
+      </div>
+
+      <div id="stepForm" class="step hidden">
+        <div class="grid2">
+          <div>
+            <label class="label">Display name</label>
+            <input id="displayName" class="input" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="label">Location</label>
+            <input id="location" class="input" placeholder="City, Country" />
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <label class="label">Category</label>
+            <input id="category" class="input" placeholder="Guidance, Healing, Provision…" />
+          </div>
+          <div class="toggle-row">
+            <label class="label">Post anonymously</label>
+            <button id="anonToggle" class="toggle" aria-pressed="false">
+              <span class="toggle-dot"></span>
+              <span class="toggle-text">Off</span>
+            </button>
+          </div>
+        </div>
+
+        <label class="label">Title</label>
+        <input id="title" class="input" placeholder="Short title" />
+
+        <label class="label">Prayer request</label>
+        <textarea id="prayerText" class="textarea" rows="5" placeholder="Share your request…"></textarea>
+
+        <button id="submitPrayer" class="btn primary">Share prayer</button>
+
+        <div class="hint">
+          Please avoid sensitive personal details. Keep names and specifics minimal when needed.
+        </div>
+      </div>
+
+      <div id="modalMsg" class="msg hidden"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
